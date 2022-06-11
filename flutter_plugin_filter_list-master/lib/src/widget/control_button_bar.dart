@@ -48,7 +48,28 @@ class ControlButtonBar<T> extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    /* All Button */
+                  /* Apply Button */
+                    ContorlButton(
+                      choiceChipLabel: '$applyButtonText',
+                      primaryButton: true,
+                      onPressed: () {
+                        onApplyButtonClick?.call();
+                      },
+                    ),
+                    if (controlButtons.contains(ContolButtonType.Reset)) ...[
+                      ContorlButton(
+                        choiceChipLabel: '$resetButtonText',
+                        onPressed: () {
+                          final state = StateProvider.of<FilterState<T>>(
+                            context,
+                            rebuildOnChange: true,
+                          );
+                          state.selctedItems = [];
+                        },
+                      ),
+                      SizedBox(width: theme.buttonSpacing),
+                    ],
+                      /* All Button */
                     if (!enableOnlySingleSelection &&
                         controlButtons.contains(ContolButtonType.All)) ...[
                       ContorlButton(
@@ -65,27 +86,6 @@ class ControlButtonBar<T> extends StatelessWidget {
 
                       /* Reset Button */
                     ],
-                    if (controlButtons.contains(ContolButtonType.Reset)) ...[
-                      ContorlButton(
-                        choiceChipLabel: '$resetButtonText',
-                        onPressed: () {
-                          final state = StateProvider.of<FilterState<T>>(
-                            context,
-                            rebuildOnChange: true,
-                          );
-                          state.selctedItems = [];
-                        },
-                      ),
-                      SizedBox(width: theme.buttonSpacing),
-                    ],
-                    /* Apply Button */
-                    ContorlButton(
-                      choiceChipLabel: '$applyButtonText',
-                      primaryButton: true,
-                      onPressed: () {
-                        onApplyButtonClick?.call();
-                      },
-                    ),
                   ],
                 ),
               ),
