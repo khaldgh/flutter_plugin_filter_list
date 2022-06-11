@@ -75,7 +75,7 @@ class HeaderThemeData with Diagnosticable {
     this.searchFieldInputBorder = InputBorder.none,
     this.boxShadow,
     this.searchFieldBorderRadius = 100,
-    this.searchFieldHintText = 'Search here...',
+    this.searchFieldHintText = 'ابحث ...',
     this.searchFieldHintTextStyle,
   });
 

@@ -29,6 +29,7 @@ class SearchFieldWidget<T> extends StatelessWidget {
             hintText: headerTheme.searchFieldHintText,
             hintStyle: headerTheme.searchFieldHintTextStyle,
             border: headerTheme.searchFieldInputBorder,
+            hintTextDirection: TextDirection.rtl
           ),
         ),
       ),

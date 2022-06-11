@@ -56,6 +56,7 @@ class ControlButtonBar<T> extends StatelessWidget {
                         onApplyButtonClick?.call();
                       },
                     ),
+                    /* Reset Button */
                     if (controlButtons.contains(ContolButtonType.Reset)) ...[
                       ContorlButton(
                         choiceChipLabel: '$resetButtonText',
@@ -84,7 +85,6 @@ class ControlButtonBar<T> extends StatelessWidget {
                       ),
                       SizedBox(width: theme.buttonSpacing),
 
-                      /* Reset Button */
                     ],
                   ],
                 ),
